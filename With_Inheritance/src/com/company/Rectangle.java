@@ -47,7 +47,10 @@ public class Rectangle extends Polygon{
         }
 
         Rectangle other = (Rectangle) obj;
-        return other.sides.contains(this.sides.get(0)) && other.sides.contains(this.sides.get(1));
+        Collections.sort(this.sides);
+        Collections.sort(other.sides);
+        return this.getSides().get(0)==other.getSides().get(0) && this.getSides().get(1)==other.getSides().get(1)
+                && this.getSides().get(2)==other.getSides().get(2) && this.getSides().get(3)==other.getSides().get(3);
     }
 
     @Override
