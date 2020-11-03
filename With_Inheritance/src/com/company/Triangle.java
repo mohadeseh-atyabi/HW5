@@ -49,8 +49,10 @@ public class Triangle extends Polygon {
         }
 
         Triangle other = (Triangle) obj;
-        return other.sides.contains(this.sides.get(0)) &&
-                other.sides.contains(this.sides.get(1)) && other.sides.contains(this.sides.get(2));
+        Collections.sort(other.sides);
+        Collections.sort(this.sides);
+        return other.getSides().get(0)==this.getSides().get(0) && other.getSides().get(1)==this.getSides().get(1)
+                && other.getSides().get(2)==this.getSides().get(2);
     }
 
     @Override
