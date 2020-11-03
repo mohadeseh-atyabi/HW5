@@ -12,6 +12,7 @@ public class Rectangle {
         sides.add(b);
         sides.add(c);
         sides.add(d);
+        Collections.sort(sides);
     }
 
     /**
@@ -57,7 +58,8 @@ public class Rectangle {
         }
 
         Rectangle other = (Rectangle) obj;
-        return other.sides.contains(this.sides.get(0)) && other.sides.contains(this.sides.get(1));
+        return other.getSides().get(0)==this.getSides().get(0) && other.getSides().get(1)==this.getSides().get(1)
+                && other.getSides().get(2)==this.getSides().get(2) && other.getSides().get(3)==this.getSides().get(3);
     }
 
     @Override
@@ -72,7 +74,7 @@ public class Rectangle {
     public String toString(){
         StringBuilder builder = new StringBuilder();
         builder.append("Rectangle::");
-        builder.append(" side1:"+sides.get(0) + ", side2:"+sides.get(1) + ", side3:"+sides.get(2) + ", side4:" +sides.get(3));
+        builder.append(" side1:"+sides.get(0) + ", side2:"+sides.get(2) + ", side3:"+sides.get(1) + ", side4:" +sides.get(3));
         return builder.toString();
     }
 
